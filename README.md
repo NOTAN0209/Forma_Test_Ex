@@ -1,1 +1,3 @@
-# Forma_Test_Ex
+#START PROJECT
+- cd my-app
+- -npm start
