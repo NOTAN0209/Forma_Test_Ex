@@ -154,7 +154,6 @@
     height: 120px; 
 }
 
-
 @media (max-width:360px){
     .inputNameColumn{
         width: 330px;
@@ -170,90 +169,6 @@
     padding:5px;
     z-index: 4;
 }
-
-
-/*inputNumber*/
-
-.inputTelTitle{
-    width: 700px;
-    height: 20px; 
-    font-size: 16px;
-    top: -50px;
-
-}
-.inputNumberColumn{
-    width: 700px;
-    height:70px; 
-}
-
-@media (max-width:360px){
-    .inputNumberColumn{
-        width: 330px;
-        height: 80px; 
-    }
-}
-
-.inputNumber{
-    width: 700px;
-    height: 40px; 
-    font-size: 16px;
-    padding: 5px; 
-}
-
-input[type = text]::placeholder{
-    font-size: 26px;
-    top:-100px;
-}
-
-
-@media (max-width:360px){
-    .inputNumber{
-        width: 330px;
-        height: 40px; 
-    }
-}
-
-input[type=tel]{
-    width: 700px;
-    height: 40px;
-    font-size: 16px;
-    top: -50px;
-}
-
-@media (max-width:1024px){
-    input[type=tel]{
-        width: 150px;
-        height: 40px;
-    }
-}
-
-@media (max-width:360px){
-    input[type=tel]{
-        width: 330px;
-        height: 40px;
-        padding: 15px;
-        font-size: 14px;
-    }
-}
-
-
-.inputMessage{
-    width: 700px;
-    height: 400px; 
-    top:-140px; 
-    padding-top: 0px;
-}
-
-.
-
-@media (max-width:360px){
-    .inputMessage{
-        width: 330px;
-        height: 40px;
-        top:0px;
-    }
-}
-
 
 /*mistakeName*/
 .mistakeNameVisible{
@@ -302,6 +217,87 @@ input[type=tel]{
     }
 }
 
+/*inputTel*/
+.inputTelColumn{
+    width: 700px;
+    height: 80px; 
+}
+
+.inputTel{
+    width: 700px;
+    height: 40px; 
+    font-size: 16px;
+    padding: 5px; 
+    top:-48px;
+}
+
+.mistakeTelVisible{
+    width: 700px;
+    height: 30px;
+    top:-55px;
+    font-size: 14px;
+    background: #F36223;
+    color: #F8FAFE;
+    padding: 5px 10px;
+    z-index: 3;
+}
+
+@media (max-width:360px){
+    .mistakeTelVisible{
+        width: 330px;
+        height: 30px; 
+        padding: 5px 20px 5px 15px;
+    }
+}
+
+.mistakeTel{ 
+    width: 700px;
+    height: 30px;
+    display: block;
+    background:#F8FAFE;
+    color: #F8FAFE;
+    padding: 2px 20px;
+    z-index: 3;
+    font-size: 16px;
+    top:-45px;
+}
+
+@media (max-width:1024px){
+    .mistakeTel{
+        width: 500px;
+        height: 30px; 
+        padding: 15px 20px 5px 15px;
+    }
+}
+
+@media (max-width:360px){
+    .mistakeTel{
+        width: 330px;
+        height: 30px; 
+        padding: 15px 20px 5px 15px;
+    }
+}
+
+/*inputText*/
+
+.inputText{
+    width: 700px;
+    height: 400px; 
+    top:-130px; 
+}
+
+@media (max-width:360px){
+    .inputText{
+        width: 330px;
+        height: 40px;
+        top:0px;
+    }
+}
+
+input[type=textarea]::placeholder{
+    font-size: 20px;
+    padding-top: 0px;
+}
 
 .form__border{
     width: 750px;

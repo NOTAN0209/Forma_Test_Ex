@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import './form.css';
+import InputMask from "react-input-mask";
 
-let errorInitial = { name: null, rating: null }; 
+let errorInitial = { name: null, tel: null }; 
 
 function Form() {
 
@@ -9,11 +10,10 @@ function Form() {
     let [error, setError] = useState({ errorInitial });
     localStorage.setItem('reviewFormInput', JSON.stringify(input));
 
-    // console.log(input);
-
     function handleSubmit (event){
         event.preventDefault();
 
+        //validation inputName
         if (input?.name.trim() === '') {
             setError({ ...error, name: 'Вы забыли указать имя и фамилию' });
             return;
@@ -26,37 +26,60 @@ function Form() {
             return;
         }
 
-        let rating = +input?.rating;
-        
-        if (isNaN(rating) || rating < 1 || rating > 5) {
-            setError({ ...error, rating: 'Оценка должна быть от 1 до 5' });
+        //validation inputTel
+        if (input?.tel.trim() === '') {
+            setError({ ...error,tel: 'Вы забыли указать телефон' });
             return;
         }
 
-        setInput({ name: "", rating: "", text: "" });
-        console.log("Проверка завершена");
-    };
+        //validation inputText
 
-     // Срабатывает при вводе имени
-     let handleInputName = (event) => {
-        setInput({ ...input, name: event.target.value });
-    };
+        if (input?.text.trim() === '') {
+            setError({ ...error, name: 'Вы забыли написать сообщение' });
+            return;
+        }
 
-    // Срабатывает при фокусе на поле с именем
-    let handleFocusName = () => {
-        setError({ ...errorInitial })
-    };
+        let textLength = input?.text.trim().length;
 
-    // Срабатывает при вводе рейтинга 
-    let handleInputRating = (event) => {
-        setInput({ ...input, rating: event.target.value });
-    };
+        if (textLength <= 2) {
+            setError({ ...error, name: 'Имя не может быть короче 2-х символов' });
+            return;
+        }
+        
+        setInput({ name: "", tel: "+79999999999 ", text: "" });
 
-    // Срабатывает при фокусе на поле с рейтингом
-    let handleFocusRating = () => {
-        setError({ ...errorInitial })
-    }
+        alert("Проверка завершена");
+        };
 
+        // Срабатывает при вводе имени
+        let handleInputName = (event) => {
+            setInput({ ...input, name: event.target.value });
+        };
+
+        // Срабатывает при фокусе на поле с именем
+        let handleFocusName = () => {
+            setError({ ...errorInitial })
+        };
+
+        // Срабатывает при вводе телефона
+        let handleInputTel = (event) => {
+            setInput({ ...input, tel: event.target.value });
+        };
+        
+        // Срабатывает при фокусе на поле с телефоном
+        let handleFocusTel = () => {
+            setError({ ...errorInitial })
+        };
+
+        // Срабатывает при вводе сообщения
+        let handleInputText = (event) => {
+            setInput({ ...input, text: event.target.value });
+        };
+        
+        // Срабатывает при фокусе на поле ссообщением
+        let handleFocusText = () => {
+            setError({ ...errorInitial })
+        };
     return (
         <form className="form" onSubmit={handleSubmit} >
             <fieldset className="formBorder">
@@ -75,30 +98,30 @@ function Form() {
                                 />
         
                             <div className={`mistakeNameVisible ${error.name ? '' : `mistakeName`}`}>{error.name}</div>
-                        </div>
-
-                        <div className="inputNumberColumn"> 
-        
-                            <input
-                                type="tel"
-                                pattern="2[0-9]{3}-[0-9]{3}"
-                                name="rating"
-                                placeholder="Номер телефона"
-                                className="inputNumber"
-                                value={input?.rating}
-                                onInput={handleInputRating}
-                                onFocus={handleFocusRating}
-                                />
-                        
-                            <div className={`mistakeNumberVisible ${error.rating ? '' : "mistakeNumber"}`}>{error.rating}</div>                                                                   
-                        </div>                 
+                        </div>                    
+       
+                        <div className="inputTelColumn">
+                            <InputMask 
+                                    mask="+7(999)999-99-99"
+                                    name="tel"  
+                                    placeholder="Номер телефона"
+                                    className="inputTel"
+                                    value={input?.tel} 
+                                    onInput={handleInputTel}
+                                    onFocus={handleFocusTel}  
+                                    /> 
+                            <div className={`mistakeTelVisible ${error.tel ? '' : `mistakeTel`}`}>{error.tel}</div> 
+                        </div>                                 
                  </div>
                                         
                 <input
-                    type="text" 
-                    name="textMessage" 
+                    type="textarea" 
+                    name="text" 
                     placeholder="Сообщение"
-                    className="inputMessage" 
+                    className="inputText"
+                    value={input?.text} 
+                    onInput={handleInputText}
+                    onFocus={handleFocusText}   
                 />
                             
                              
