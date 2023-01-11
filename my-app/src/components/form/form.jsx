@@ -28,7 +28,14 @@ function Form() {
 
         //validation inputTel
         if (input?.tel.trim() === '') {
-            setError({ ...error,tel: 'Вы забыли указать телефон' });
+            setError({ ...error, name: 'Вы забыли указать телефон' });
+            return;
+        }
+
+        let telLength = input?.tel.trim().length;
+
+        if (telLength <= 11) {
+            setError({ ...error, name: 'Номер не может быть короче 11-х символов' });
             return;
         }
 
@@ -39,17 +46,30 @@ function Form() {
             return;
         }
 
-        let textLength = input?.text.trim().length;
+        let textLength = input?.text.trim();
 
-        if (textLength <= 2) {
-            setError({ ...error, name: 'Имя не может быть короче 2-х символов' });
-            return;
-        }
-        
-        setInput({ name: "", tel: "+79999999999 ", text: "" });
+        let spesSymbols = /[^a-zA-Z0-9]/;
 
-        alert("Проверка завершена");
+        if (spesSymbols.test( textLength)) {
+            setError({ ...error, name: 'Наличие спец символов' })    
+            return
+        } else {
+            textLength === spesSymbols
         };
+                 
+        setInput({ name: "", tel: "", text: "" });
+       
+        alert(`  
+            {
+              "name": ${input?.name.trim()} ,
+              "telephone": ${input?.tel.trim()},
+              "text": ${input?.text.trim()}
+            },
+         `);
+        };
+
+       
+          
 
         // Срабатывает при вводе имени
         let handleInputName = (event) => {
@@ -80,6 +100,7 @@ function Form() {
         let handleFocusText = () => {
             setError({ ...errorInitial })
         };
+
     return (
         <form className="form" onSubmit={handleSubmit} >
             <fieldset className="formBorder">
@@ -117,7 +138,7 @@ function Form() {
                 <input
                     type="textarea" 
                     name="text" 
-                    placeholder="Сообщение"
+                    placeholder="Сообщение..."
                     className="inputText"
                     value={input?.text} 
                     onInput={handleInputText}

@@ -38,7 +38,7 @@
     flex-direction: column;
     width: 700px;
     height: 700px;
-    top: 100px;
+    top: 10px;
     left:500px;
     z-index: 4;
 }
@@ -128,24 +128,6 @@
    background: #F8FAFE;
 }
 
-.mistakeRow { 
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    gap: 50px;
-    width: 700px;
-    height: 40px;
-    top:-5px;
-}
-
-
-@media (max-width:1024px){
-    .mistakeRow{
-        width: 600px;
-        height: 40px;
-        top:-10px;
-    }
-}
 
 /*inputName*/
 
@@ -166,7 +148,7 @@
     height: 40px;
     font-size: 16px;
     left:0px;
-    padding:5px;
+    padding:15px 15px 15px 20px;
     z-index: 4;
 }
 
@@ -227,9 +209,10 @@
     width: 700px;
     height: 40px; 
     font-size: 16px;
-    padding: 5px; 
+    padding: 15px 15px 15px 20px; 
     top:-48px;
 }
+
 
 .mistakeTelVisible{
     width: 700px;
@@ -282,8 +265,8 @@
 
 .inputText{
     width: 700px;
-    height: 400px; 
-    top:-130px; 
+    height: 100px; 
+    top:-135px; 
 }
 
 @media (max-width:360px){
@@ -294,9 +277,12 @@
     }
 }
 
-input[type=textarea]::placeholder{
-    font-size: 20px;
-    padding-top: 0px;
+input[type= textarea]{ 
+    font-size: 18px;
+    padding-top: 20px;
+    padding-bottom: 140px ;
+    padding-left: 20px;
+   
 }
 
 .form__border{
@@ -320,7 +306,7 @@ input[type=textarea]::placeholder{
     border-radius: 4px;
     padding: 10px;
     font-size: 16px;
-    top:-120px;
+    top:-80px;
     left:260px;
 }
 
