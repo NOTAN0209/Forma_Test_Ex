@@ -7,60 +7,43 @@
     background: #F8FAFE;
     font-family:sans-serif;
     margin:0px;
-    padding: 0px;
-     
+    padding: 0px;   
 }
 
 @media (max-width:1024px){
-  *{
-   position: relative;
-   max-width: 1024px;
-   max-height: 100vh;
-   background: #F8FAFE;
-   font-family:sans-serif;
-    }
-}
-
-
-@media (max-width:360px){
     *{
      position: relative;
-    max-width: 360px;
-     max-height: 3208px;
+     max-width: 1024px;
+     max-height: 100vh;
      background: #F8FAFE;
      font-family:sans-serif;
+     margin:0px;
+     padding: 0px; 
      }
 }
-
+  
 
 .form {
     display: flex;
     flex-direction: column;
     width: 700px;
     height: 700px;
-    top: 10px;
-    left:500px;
-    z-index: 4;
+    top: 30px;
+    left:300px;
+
 }
 
 @media (max-width:1024px){
     .form{
+        display: flex;
+        flex-direction: column;
         width: 700px;
-        height: 340px;
-        left: 30px;
-        top:900px;
-        z-index: 1;
+        height: 700px;
+        top: 30px;
+        left:100px;
     }
 }
-
-@media (max-width:360px){
-    .form{
-        width: 340px;
-        height: 380px;
-        left: 15px;
-        top:700px;
-    }
-}
+  
 
 .formBorder{
     border: none;
@@ -76,22 +59,6 @@
     line-height: 19px;
 }
 
-@media (max-width:1024px){
-    .formTitle{
-        width: 600px;
-        height: 20px;
-     
-    }
-}
-
-@media (max-width:360px){
-    .formTitle{
-        width: 174px;
-        height: 20px;
-     
-    }
-}
-
 .formRow{
     display: flex;
     flex-direction: column;
@@ -102,45 +69,15 @@
     top:20px;
 }
 
-@media (max-width:1024px){
-    .formRow{
-        display: flex;
-        flex-direction: column;
-        width: 650px;
-        height: 50px;
-        gap: 50px;
-        
-    }
-}
-
-@media (max-width:360px){
-    .formRow{
-    display: flex;
-    flex-direction: column;
-    width: 340px;
-    height: 200px;
-    gap: 0px;
-   
-    }
-}
-
 .field {
    background: #F8FAFE;
 }
-
 
 /*inputName*/
 
 .inputNameColumn{
     width: 700px;
     height: 120px; 
-}
-
-@media (max-width:360px){
-    .inputNameColumn{
-        width: 330px;
-        height: 70px;
-    }
 }
 
 .inputName{
@@ -152,23 +89,41 @@
     z-index: 4;
 }
 
+input[type= text]{ 
+    border-radius: 30px;
+}
+
+
 /*mistakeName*/
+
 .mistakeNameVisible{
-    width: 700px;
-    height: 30px;
-    top:0px;
+    width: 200px;
+    height: 70px;
+    top:-40px;
+    left:750px;
     font-size: 14px;
     background: #F36223;
     color: #F8FAFE;
-    padding: 5px 20px;
+    padding: 18px 20px;
     z-index: 3;
+    border-radius: 15px;
+    text-align: center;
 }
 
-@media (max-width:360px){
+
+@media (max-width:1024px){
     .mistakeNameVisible{
-        width: 330px;
-        height: 30px; 
-        padding: 5px 20px 5px 15px;
+    width: 170px;
+    height: 70px;
+    top:-40px;
+    left:730px;
+    font-size: 14px;
+    background: #F36223;
+    color: #F8FAFE;
+    padding: 20px 15px;
+    z-index: 3;
+    border-radius: 15px;
+    text-align: center;
     }
 }
 
@@ -183,23 +138,8 @@
     font-size: 16px;
 }
 
-@media (max-width:1024px){
-    .mistakeName{
-        width: 500px;
-        height: 30px; 
-        padding: 15px 20px 5px 15px;
-    }
-}
-
-@media (max-width:360px){
-    .mistakeName{
-        width: 330px;
-        height: 30px; 
-        padding: 15px 20px 5px 15px;
-    }
-}
-
 /*inputTel*/
+
 .inputTelColumn{
     width: 700px;
     height: 80px; 
@@ -211,54 +151,7 @@
     font-size: 16px;
     padding: 15px 15px 15px 20px; 
     top:-48px;
-}
-
-
-.mistakeTelVisible{
-    width: 700px;
-    height: 30px;
-    top:-55px;
-    font-size: 14px;
-    background: #F36223;
-    color: #F8FAFE;
-    padding: 5px 10px;
-    z-index: 3;
-}
-
-@media (max-width:360px){
-    .mistakeTelVisible{
-        width: 330px;
-        height: 30px; 
-        padding: 5px 20px 5px 15px;
-    }
-}
-
-.mistakeTel{ 
-    width: 700px;
-    height: 30px;
-    display: block;
-    background:#F8FAFE;
-    color: #F8FAFE;
-    padding: 2px 20px;
-    z-index: 3;
-    font-size: 16px;
-    top:-45px;
-}
-
-@media (max-width:1024px){
-    .mistakeTel{
-        width: 500px;
-        height: 30px; 
-        padding: 15px 20px 5px 15px;
-    }
-}
-
-@media (max-width:360px){
-    .mistakeTel{
-        width: 330px;
-        height: 30px; 
-        padding: 15px 20px 5px 15px;
-    }
+    border-radius: 30px;
 }
 
 /*inputText*/
@@ -266,15 +159,7 @@
 .inputText{
     width: 700px;
     height: 100px; 
-    top:-135px; 
-}
-
-@media (max-width:360px){
-    .inputText{
-        width: 330px;
-        height: 40px;
-        top:0px;
-    }
+    top:-120px; 
 }
 
 input[type= textarea]{ 
@@ -282,7 +167,8 @@ input[type= textarea]{
     padding-top: 20px;
     padding-bottom: 140px ;
     padding-left: 20px;
-   
+    top:-140px;
+    border-radius: 30px;
 }
 
 .form__border{
@@ -308,21 +194,5 @@ input[type= textarea]{
     font-size: 16px;
     top:-80px;
     left:260px;
-}
-
-@media (max-width:1024px){
-    .formButton {
-        width: 180px;
-        height: 40px;
-        top:50px;
-    }
-}
-
-@media (max-width:360px){
-    .formButton {
-        width: 150px;
-        height: 40px;
-        top:-20px;
-        font-size: 14px;
-    }
+    border-radius: 30px;
 }

@@ -14,62 +14,69 @@ function Form() {
         event.preventDefault();
 
         //validation inputName
-        if (input?.name.trim() === '') {
+
+        let inputName = input?.name.trim();
+
+        if ( inputName  === '') {
             setError({ ...error, name: 'Вы забыли указать имя и фамилию' });
             return;
-        }
+        };
 
-        let nameLength = input?.name.trim().length;
+        let nameLength = inputName.length;
 
         if (nameLength <= 2) {
             setError({ ...error, name: 'Имя не может быть короче 2-х символов' });
             return;
-        }
+        };
+        
+        let spesSymbols = /^[?!,.а-яА-ЯёЁa-zA-Z0-9\s]+$/;
+    
+        if (!spesSymbols.test(inputName)) {
+            setError({ ...error, name: 'Наличие спец символов' });
+            return;             
+        };
 
         //validation inputTel
-        if (input?.tel.trim() === '') {
+
+        let inputTel = input?.tel.trim();
+
+        if (inputTel === '') {
             setError({ ...error, name: 'Вы забыли указать телефон' });
             return;
-        }
+        };
+    
+        let tel = inputTel.replace(/[^\d\+]/g,"");
 
-        let telLength = input?.tel.trim().length;
-
-        if (telLength <= 11) {
-            setError({ ...error, name: 'Номер не может быть короче 11-х символов' });
+        if (tel.length < 12) {        
+            setError({ ...error, name: 'Неверный номер телефона' });
+            console.log(tel)
             return;
         }
 
         //validation inputText
 
+        let inputText = input?.text.trim();
+
         if (input?.text.trim() === '') {
             setError({ ...error, name: 'Вы забыли написать сообщение' });
             return;
         }
-
-        let textLength = input?.text.trim();
-
-        let spesSymbols = /[^a-zA-Z0-9]/;
-
-        if (spesSymbols.test( textLength)) {
-            setError({ ...error, name: 'Наличие спец символов' })    
-            return
-        } else {
-            textLength === spesSymbols
+    
+        if (!spesSymbols.test(inputText)) {
+            setError({ ...error, name: 'Наличие спец символов' });
+            return;             
         };
                  
         setInput({ name: "", tel: "", text: "" });
        
         alert(`  
             {
-              "name": ${input?.name.trim()} ,
-              "telephone": ${input?.tel.trim()},
-              "text": ${input?.text.trim()}
+              "name": ${inputName} ,
+              "telephone": ${tel},
+              "text": ${inputText}
             },
          `);
-        };
-
-       
-          
+        };       
 
         // Срабатывает при вводе имени
         let handleInputName = (event) => {
@@ -123,7 +130,7 @@ function Form() {
        
                         <div className="inputTelColumn">
                             <InputMask 
-                                    mask="+7(999)999-99-99"
+                                    mask="+7 (999) 999-99-99"
                                     name="tel"  
                                     placeholder="Номер телефона"
                                     className="inputTel"
@@ -131,7 +138,6 @@ function Form() {
                                     onInput={handleInputTel}
                                     onFocus={handleFocusTel}  
                                     /> 
-                            <div className={`mistakeTelVisible ${error.tel ? '' : `mistakeTel`}`}>{error.tel}</div> 
                         </div>                                 
                  </div>
                                         
