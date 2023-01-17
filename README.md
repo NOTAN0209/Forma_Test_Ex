@@ -1,5 +1,4 @@
 ### START PROJECT ###
-(The project is made with REACT)
 - cd my-app
 - npm start
 
