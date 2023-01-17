@@ -1,6 +1,6 @@
 ### START PROJECT ###
 - cd my-app
-- -npm start
+- npm start
 
  ### Form Add Validation ###
 1. The form can contain the following fields: "phone number", "name" and "message".
