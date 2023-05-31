@@ -5,6 +5,7 @@ import InputMask from "react-input-mask";
 let errorInitial = { name: null, tel: null }; 
 
 function Form() {
+    "use strict";
 
     let [input, setInput] = useState(JSON.parse(localStorage.getItem('reviewFormInput')));
     let [error, setError] = useState({ errorInitial });
@@ -45,6 +46,7 @@ function Form() {
             return;
         };
     
+        /* eslint-disable */
         let tel = inputTel.replace(/[^\d\+]/g,"");
 
         if (tel.length < 12) {        
@@ -66,16 +68,13 @@ function Form() {
             setError({ ...error, name: 'Наличие спец символов' });
             return;             
         };
+
+         //приведение данных для json
+
+        alert(`{"name": ${inputName},"telephone": ${tel}, text": ${inputText}}`);
                  
         setInput({ name: "", tel: "", text: "" });
        
-        alert(`  
-            {
-              "name": ${inputName} ,
-              "telephone": ${tel},
-              "text": ${inputText}
-            },
-         `);
         };       
 
         // Срабатывает при вводе имени
@@ -110,6 +109,7 @@ function Form() {
 
     return (
         <form className="form" onSubmit={handleSubmit} >
+            <React.StrictMode>
             <fieldset className="formBorder">
                 <legend className="formTitle">Форма обратной связи</legend>
                     <div className="formRow"> 
@@ -154,6 +154,7 @@ function Form() {
                              
                 <button className="formButton" type = "submit">Отправить</button>
             </fieldset>
+            </React.StrictMode>
         </form>
         )
 }
