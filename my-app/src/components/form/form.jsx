@@ -71,7 +71,7 @@ function Form() {
 
          //приведение данных для json
 
-        alert(`{"name": ${inputName},"telephone": ${tel}, text": ${inputText}}`);
+        alert(`{"name":${inputName},"telephone": ${tel}, text": ${inputText}}`);
                  
         setInput({ name: "", tel: "", text: "" });
        
@@ -109,7 +109,6 @@ function Form() {
 
     return (
         <form className="form" onSubmit={handleSubmit} >
-            <React.StrictMode>
             <fieldset className="formBorder">
                 <legend className="formTitle">Форма обратной связи</legend>
                     <div className="formRow"> 
@@ -154,7 +153,6 @@ function Form() {
                              
                 <button className="formButton" type = "submit">Отправить</button>
             </fieldset>
-            </React.StrictMode>
         </form>
         )
 }
